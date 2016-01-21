@@ -12,5 +12,10 @@ var modeShapeBrowserConf = {
     file: "fa-file",
     workspace: "fa-book",
     repository: "fa-database"
+  },
+  authentication : {
+    type : "basic",
+    login : "useradmin",
+    pwd : "secret3"
   }
 };
