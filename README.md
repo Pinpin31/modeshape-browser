@@ -26,9 +26,9 @@ Configuration is simple. Change the file scripts/conf.js
 
 ```javascript
 var modeShapeBrowserConf = {
-  title: "Orion-File-Service Browser",
-  url: "/ofs/rest/",
-  copyright : "OFS Made by BMSQ/PRO+ - 2016",
+  title: "ModeShape Browser",
+  url: "http://localhost:8080/ofs/rest/",
+  copyright : "BMSQ/PRO+ - 2016",
   icons: {
     folder: "fa-folder-open",
     file: "fa-file",
