@@ -1,0 +1,31 @@
+{
+  "name": "modeshape-browser",
+  "version": "1.0.0",
+  "description": "ModeShape browser client in AngularJS",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pinpin31/modeshape-browser.git"
+  },
+  "keywords": [
+    "modeshape",
+    "client",
+    "angularjs"
+  ],
+  "author": "MAAF/BMSQ/PrO+",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pinpin31/modeshape-browser/issues"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-loading-bar": "^0.8.0",
+    "angular-route": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "es5-shim": "^4.4.1",
+    "json3": "^3.3.2"
+  }
+}

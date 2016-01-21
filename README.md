@@ -5,6 +5,25 @@ ModeShape Browser is a project from BMSQ/PrO+, a departement of french ministry 
 
 You need to activate Rest in ModeShape. See documentation : https://docs.jboss.org/author/display/MODE40/ModeShape's+REST+Service
 
+## Installation
+* Install npm
+```
+
+```
+* Install bower
+```
+npm install -g bower 
+```
+* Install bower-installer
+```
+npm install -g bower-installer
+```
+* Install dependencies in libs dir
+```
+bower-installer
+```
+
+
 ## Configuration
 Configuration is simple. Change the file scripts/conf.js
 
