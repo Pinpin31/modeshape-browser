@@ -1,0 +1,44 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right" ng-if="currentNode.type == 'workspace' || currentNode.type == 'folder'">
+    <input style="float:left" type="button" value="Upload" ng-click="uploadFile()" class="btn btn-primary"/>
+    <input style="float:right" type="file" id="fileinput" multiple/>
+  </ul>
+
+  <h1 class="text-muted"><a href="" ng-click="goToRoot()">{{title}}</a></h1>
+</div>
+
+<!-- breadcrumb -->
+<div class="row">
+  <ol class="breadcrumb">
+    <li ng-repeat="parent in parents">
+      <a ng-if="!$last" href="" ng-click="breadcrumb($index)">{{parent.name}}</a>
+      <span ng-if="$last" class="active">{{parent.name}}</span>
+    </li>
+
+  </ol>
+</div>
+
+<!-- search filter -->
+<div class="row">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="searchFilter" id="searchInput" placeholder="Search folder name or filename">
+    </div>
+</div>
+
+<!-- content -->
+<div ng-repeat="node in nodes | filter : {name:searchFilter} track by $index">
+  <div>
+    <p><a href="" ng-click="explore(node)">
+        <span class="fa-stack fa-lg fq-fw">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa {{node.classCss}} fa-stack-1x"></i>
+        </span><span class="nameColumn">{{node.name}}</span></a><span class="dateColumn">{{node.created}}</span></p>
+  </div>
+</div>
+<div class="text-center" ng-show="nodes.length < 1">
+  Dossier vide !
+</div>
+
+<div class="footer">
+  <p>{{copyright}}</p>
+</div>
