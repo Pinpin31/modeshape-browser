@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('modeshapeBrowserApp').factory('cmisService', function ($http, $q) {
-
-  var baseUrl = window.location.origin + modeShapeBrowserConf.url;
+  if(modeShapeBrowserConf.url.substring(0, 4) === "http"){
+    var baseUrl = modeShapeBrowserConf.url;
+  }else{
+    var baseUrl = window.location.origin + modeShapeBrowserConf.url;
+  }
 
   return {
     ROOT: "root",

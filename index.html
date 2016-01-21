@@ -9,13 +9,6 @@
     <title>ModeShape Browser</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-    <!-- build:css(.tmp) styles/main.css -->
-
-    <script src="libs/jquery/jquery.js"></script>
-    <script src="js/dateformat.js"></script>
-    <script src="lib/bootstrap/bootstrap.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
@@ -23,9 +16,6 @@
     <link rel="stylesheet" href="libs/angular-loading-bar/loading-bar.css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-
-
-   <!-- endbuild -->
 
 </head>
   <body ng-app="modeshapeBrowserApp">
@@ -39,6 +29,10 @@
     <![endif]-->
 
     <div class="container" ng-view=""></div>
+
+    <script src="libs/jquery/jquery.js"></script>
+    <script src="scripts/dateformat.js"></script>
+    <script src="libs/bootstrap/bootstrap.js"></script>
 
     <!-- angular -->
     <script src="libs/angular/angular.js"></script>

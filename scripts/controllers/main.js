@@ -3,7 +3,6 @@
 angular.module('modeshapeBrowserApp')
   .controller('MainCtrl', function ($scope, $log, cmisService, $q) {
 
-
     /**
      * Upload file to current user navigation path
      */

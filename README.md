@@ -9,7 +9,7 @@ You need to activate Rest in ModeShape. See documentation : https://docs.jboss.o
 * Install npm
 * Install bower
 ```
-npm install -g bower 
+npm install -g bower
 ```
 * Install bower-installer
 ```
@@ -42,3 +42,12 @@ var modeShapeBrowserConf = {
 * url : url rest of ModeShape Webapp
 * copyright : message in browser footer
 
+## Simply test
+To test, you can use http-server package
+```
+npm install http-server -g
+```
+and
+```
+http-server $path/modeshape-browser
+```
