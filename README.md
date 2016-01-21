@@ -7,9 +7,6 @@ You need to activate Rest in ModeShape. See documentation : https://docs.jboss.o
 
 ## Installation
 * Install npm
-```
-
-```
 * Install bower
 ```
 npm install -g bower 

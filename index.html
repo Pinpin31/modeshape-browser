@@ -13,16 +13,16 @@
 
     <!-- build:css(.tmp) styles/main.css -->
 
-    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="libs/jquery/jquery.js"></script>
     <script src="js/dateformat.js"></script>
-    <script src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="lib/bootstrap/bootstrap.js"></script>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
 
-    <link rel="stylesheet" href="css/loading-bar.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="libs/angular-loading-bar/loading-bar.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
 
    <!-- endbuild -->
@@ -34,26 +34,23 @@
     <![endif]-->
 
     <!--[if lt IE 9]>
-      <script src="js/es5-shim.min.js"></script>
-      <script src="js/json3.min.js"></script>
+      <script src="libs/es5-shim/es5-shim.js"></script>
+      <script src="libs/json3/json3.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
-    <!-- angular 1.2.29 -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
+    <!-- angular -->
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
 
     <!-- loading Bar -->
-    <script src="js/loading-bar.min.js"></script>
+    <script src="libs/angular-loading-bar/loading-bar.js"></script>
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/conf.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/cmisService.js"></script>
-    <!-- endbuild -->
 
 </body>
 </html>
