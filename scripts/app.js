@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('modeshapeBrowserApp', ['ngRoute'])
+angular.module('modeshapeBrowserApp', ['ngRoute', 'angular-loading-bar'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

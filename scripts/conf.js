@@ -5,7 +5,7 @@
 
 var modeShapeBrowserConf = {
   title: "ModeShape Browser",
-  url: "/ofs/rest/",
+  url: "http://localhost:8080/ofs/rest/",
   copyright : "Ministère de l'Agriculture - BMSQ/PRO+ - 2016",
   icons: {
     folder: "fa-folder-open",

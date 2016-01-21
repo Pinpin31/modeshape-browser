@@ -27,16 +27,18 @@
 
 <!-- content -->
 <div ng-repeat="node in nodes | filter : {name:searchFilter} track by $index">
-  <div>
+  <div class="row">
     <p><a href="" ng-click="explore(node)">
-        <span class="fa-stack fa-lg fq-fw">
+        <span class="fa-stack fa-lg fq-fw col-md-1">
           <i class="fa fa-square-o fa-stack-2x"></i>
           <i class="fa {{node.classCss}} fa-stack-1x"></i>
-        </span><span class="nameColumn">{{node.name}}</span></a><span class="dateColumn">{{node.created}}</span></p>
+        </span><span class="col-md-6">{{node.name}}</span></a>
+	<span class="col-md-3">{{node.primaryType}}</span>
+	<span class="col-md-2">{{node.created}}</span></p>
   </div>
 </div>
 <div class="text-center" ng-show="nodes.length < 1">
-  Dossier vide !
+  Empty Folder !
 </div>
 
 <div class="footer">
