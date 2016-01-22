@@ -68,6 +68,6 @@ http-server $path/modeshape-browser
 ```
 
 ## CORS
-If client and server aren't in the same domain, you sould experience CORS problem.
+If client and server aren't in the same domain, you should experience CORS problem.
 Configure server to allow client origin in server ModeShape:
 http://stackoverflow.com/questions/29388937/problems-resteasy-3-09-corsfilter
