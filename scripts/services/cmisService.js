@@ -1,10 +1,15 @@
 'use strict';
 
-angular.module('modeshapeBrowserApp').factory('cmisService', function ($http, $q) {
+angular.module('modeshapeBrowserApp').factory('cmisService', function ($http, $q, Base64) {
   if(modeShapeBrowserConf.url.substring(0, 4) === "http"){
     var baseUrl = modeShapeBrowserConf.url;
   }else{
     var baseUrl = window.location.origin + modeShapeBrowserConf.url;
+  }
+
+  var authdata = Base64.encode(modeShapeBrowserConf.authentication.login + ':' + modeShapeBrowserConf.authentication.pwd);
+  if(authdata != ""){
+    $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
   }
 
   return {
@@ -148,19 +153,11 @@ angular.module('modeshapeBrowserApp').factory('cmisService', function ($http, $q
 }).factory('authService', ['Base64', function (Base64) {
   return {
     getAuthData:function(){
-      return Base64.encode(modeShapeBrowserConf.authentication.login + ':' + modeShapeBrowserConf.authentication.pwd);
+      if(modeShapeBrowserConf.authentication == "basic"){
+        return Base64.encode(modeShapeBrowserConf.authentication.login + ':' + modeShapeBrowserConf.authentication.pwd);
+      }else{
+        return "";
+      }
     }
   };
-}]).config(function($httpProvider) {
-
-  $httpProvider.interceptors.push(function(authService) {
-    return {
-      request: function(req) {
-        // Set the `Authorization` header for every outgoing HTTP request
-        var authdata = authService.getAuthData();
-        req.headers.Authorization = 'Basic '+authdata;
-        return req;
-      }
-    };
-  });
-});
+}]);

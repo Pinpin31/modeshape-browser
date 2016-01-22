@@ -42,6 +42,21 @@ var modeShapeBrowserConf = {
 * url : url rest of ModeShape Webapp
 * copyright : message in browser footer
 
+### Authentication
+Only basic authentication is supported in configuration :
+```javascript
+var modeShapeBrowserConf = {
+  title: "ModeShape Browser",
+  ...
+  authentication : {
+    type : "basic",
+    login : "login",
+    pwd : "pwd"
+  }
+};
+```
+
+
 ## Simply test
 To test, you can use http-server package
 ```
