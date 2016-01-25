@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('modeshapeBrowserApp')
-  .controller('MainCtrl', function ($scope, $log, cmisService, $q) {
+  .controller('MainCtrl', function ($scope, $log, cmisService, $q, $location) {
 
     /**
      * Upload file to current user navigation path
@@ -90,6 +90,7 @@ angular.module('modeshapeBrowserApp')
       // ADD ELEMENTS TO SCOPE
       if (!contains($scope.parents, node) && node.type != cmisService.FILE) {
         $scope.parents.push(node);
+        $location.search({'path': $scope.currentNode.path});
       }
     }; // end function explore
 
@@ -155,6 +156,20 @@ angular.module('modeshapeBrowserApp')
     }
 
     /**
+     * Construct root Node
+     *
+     * @param repository
+     * @returns {{}}
+     */
+    function getRootObject() {
+      var obj = {};
+      obj['name'] = cmisService.ROOT;
+      obj['path'] = "";
+      obj['type'] = cmisService.ROOT;
+      return obj;
+    }
+
+    /**
      * Construct repository Node
      *
      * @param repository
@@ -215,6 +230,62 @@ angular.module('modeshapeBrowserApp')
       return obj;
     }
 
+    /**
+    * Construct Simple Node
+    *
+    * @param path
+    * @param key
+    * @returns {{}}
+    */
+   function getSimpleNodeObject(path, key) {
+     var obj = {};
+     obj['name'] = key;
+     obj['path'] = path + "/" + key;
+     obj['type'] = cmisService.FOLDER;
+     return obj;
+   }
+
+   /**
+    * Find an retrieve breadcrumb and files to explore from location path
+    *
+    * @param path
+    * @returns {{}}
+    */
+   function guessNodeTypeFromPath(path) {
+     if (path === "" || path === "/") {
+       return getRootObject();
+     } else {
+       var lastNode = {};
+       var currentPath = "";
+       var nodesPath = path.split('/');
+       angular.forEach(nodesPath, function (value, key) {
+         if (value != "items") {
+           if (key == 0) {
+             $scope.parents.push(getRootObject());
+             lastNode = getRepositoryObject({name: value});
+             $scope.parents.push(lastNode);
+             currentPath = value;
+           }
+           if (key == 1) {
+             var name = value;
+             currentPath = currentPath + "/" + value + "/items";
+             var workspace = getWorkspaceObject({name: name, path: currentPath}, {name: ""});
+             $scope.parents.push(workspace);
+             workspace['path'] = currentPath;
+             lastNode = workspace;
+           }
+           if (key > 1) {
+             var node = getSimpleNodeObject(currentPath, value);
+             $scope.parents.push(node);
+             lastNode = node;
+             currentPath = currentPath + "/" + value;
+           }
+         }
+       });
+       return lastNode;
+     }
+   }
+
     function contains(a, obj) {
       var i = a.length;
       while (i--) {
@@ -229,14 +300,17 @@ angular.module('modeshapeBrowserApp')
      * Init on load
      */
     function init() {
-      var obj = {};
-      obj['name'] = cmisService.ROOT;
-      obj['path'] = '';
-      obj['type'] = cmisService.ROOT;
-
+      $scope.message = "Empty folder!";
       $scope.title = modeShapeBrowserConf.title;
       $scope.copyright = modeShapeBrowserConf.copyright;
       $scope.parents = [];
+
+      var path = "";
+      if ("path" in $location.search()) {
+        path = $location.search().path;
+      }
+      var obj = guessNodeTypeFromPath(path);
+
       $scope.currentNode = obj;
       $scope.explore(obj);
     }
